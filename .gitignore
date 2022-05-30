@@ -1,5 +1,29 @@
-server/node_modules/**/*
-client/node_modules/**/*
+## SERVER GIT-IGNORE ##
+# dependencies
+server/node_modules
+server/.pnp
+server/.pnp.js
+
+# testing
+server/coverage
+
+# production
+server/build
+
+# misc
+server/.DS_Store
+.DS_Store
+server/.env.local
+server/.env.development.local
+server/.env.test.local
+server/.env.production.local
+
+server/npm-debug.log*
+server/yarn-debug.log*
+server/yarn-error.log*
 
 # Keep environment variables out of version control
 server/.env
+
+## CLIENT GIT-IGNORE ##
+client/node_modules/**/*
