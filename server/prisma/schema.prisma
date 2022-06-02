@@ -9,3 +9,28 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  email     String   @unique
+  name      String?
+  password  String?
+  role      Role     @default(USER)
+}
+
+model Dog {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  name      String?
+  breed     String?
+  desc      String
+}
+
+model Cat {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  name      String?
+  breed     String?
+  desc      String
+}
