@@ -23,7 +23,7 @@ CREATE TABLE "Pet" (
     "image" TEXT NOT NULL,
     "breed" TEXT NOT NULL,
     "status" "Status" NOT NULL DEFAULT E'ForAdoption',
-    "descripton" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
 
     CONSTRAINT "Pet_pkey" PRIMARY KEY ("id")
 );
