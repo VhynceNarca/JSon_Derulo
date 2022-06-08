@@ -21,17 +21,17 @@ enum Status {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  email     String   @unique
-  name      String
-  password  String
-  role      Role     @default(Customer)
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  name     String
+  password String
+  role     Role   @default(Customer)
 }
 
 model Pet {
   id         Int    @id @default(autoincrement())
   name       String
+  category   String
   image      String
   breed      String
   status     Status @default(ForAdoption)
