@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.imagecontainer img {
+  height: 85%;
+  width: 105%;
+  margin: 0;
+  transform: scale(1);
+}
+
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+  .imagecontainer img {
+    margin-left: 5%;
+    height: 75%;
+    width: 100%;
+  }
+}
