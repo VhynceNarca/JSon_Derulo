@@ -24,6 +24,11 @@
   font-size: 64px;
 }
 
+.subtitle {
+  font-size: 24px;
+  margin-bottom: 5%;
+}
+
 .loginBtn {
   padding: 0.6em 2em;
   border-radius: 40px;
@@ -55,7 +60,7 @@ input {
   height: 49px;
   padding: 12px 20px;
   margin: 8px 0;
-  border-radius: 12px;
+  border-radius: 11px;
   border-width: 1px;
   border-color: rgba(0, 0, 0, 0.2);
 }
@@ -84,16 +89,20 @@ label {
 }
 
 h3 {
-  color: #6666;
+  color: rgb(102, 102, 102);
   font-size: 16px;
   font-weight: lighter;
 }
 
 span:after,
 span:before {
-  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
   text-decoration: line-through;
   color: rgba(0, 0, 0, 0.2);
+}
+
+h3 .loginspan {
+  font-style: italic;
 }
 
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
@@ -116,6 +125,7 @@ span:before {
 
   .subtitle {
     font-size: 18px;
+    margin-bottom: 7%;
   }
 
   .loginBtn {
@@ -148,10 +158,6 @@ span:before {
     width: 60%;
     height: 35px;
     padding: 12px 20px;
-    margin: 8px 0;
-    border-radius: 12px;
-    border-width: 1px;
-    border-color: rgba(0, 0, 0, 0.2);
   }
 
   form {
@@ -188,5 +194,9 @@ span:before {
     content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
     text-decoration: line-through;
     color: rgba(0, 0, 0, 0.2);
+  }
+
+  h3 .loginspan {
+    font-style: italic;
   }
 }
