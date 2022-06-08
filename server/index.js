@@ -1,13 +1,13 @@
 import express from "express";
 import cors from "cors";
-import { userRoute } from "./routes/userroutes.js";
-import { petRoute } from "./routes/petroutes.js";
+import { userRouter } from "./routes/user.js";
+import { petRouter } from "./routes/pet.js";
 
 const app = express();
 
 app.use(express.json());
-app.use("api/users", userRoute);
-app.use("api/pets", petRoute);
+app.use("/users", userRouter);
+app.use("/pets", petRouter);
 app.use(
   cors({
     origin: "localhost",
