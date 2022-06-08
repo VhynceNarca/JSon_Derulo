@@ -16,7 +16,7 @@ petRouter.get("/dogs", async (request, response) => {
                 image: true,
                 breed: true,
                 status: true,
-                descripton: true
+                description: true
             }, 
             where: {
                 category,
@@ -41,7 +41,7 @@ petRouter.get("/cats", async (request, response) => {
                 image: true,
                 breed: true,
                 status: true,
-                descripton: true
+                description: true
             },
             where: {
                 category,
@@ -65,7 +65,7 @@ petRouter.get("/:id", async(request, response) => {
                 image: true,
                 breed: true,
                 status: true,
-                descripton: true
+                description: true
             },
             where: {
                 id: parseInt(id)
@@ -78,7 +78,7 @@ petRouter.get("/:id", async(request, response) => {
 })
 
 petRouter.post("/register", async(request, response) => {
-    const { name, category, image, breed, descripton } = request.body
+    const { name, category, image, breed, description } = request.body
     try {
         const register_pet = await pet.create({
             data: {
@@ -86,7 +86,7 @@ petRouter.post("/register", async(request, response) => {
                 category,
                 image,
                 breed,
-                descripton
+                description
             }
         })
         response.json(register_pet)
