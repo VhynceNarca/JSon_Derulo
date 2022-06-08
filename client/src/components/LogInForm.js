@@ -2,7 +2,10 @@ import React from "react";
 import "./mainhero.css";
 import logo from "../../src/assets/logo.png";
 
+import { useNavigate } from "react-router-dom";
+
 const LogInForm = () => {
+  const navigate = useNavigate();
   return (
     <div className="container">
       <div className="center">
@@ -33,7 +36,9 @@ const LogInForm = () => {
             <span className="loginspan">New to our community</span>
           </h3>
           <div>
-            <button className="loginBtn">Create an account</button>
+            <button className="loginBtn" onClick={() => navigate("/signup")}>
+              Create an account
+            </button>
           </div>
         </div>
       </div>

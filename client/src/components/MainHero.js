@@ -2,7 +2,10 @@ import React from "react";
 import "./mainhero.css";
 import logo from "../../src/assets/logo.png";
 
+import { useNavigate } from "react-router-dom";
+
 const MainHero = () => {
+  const navigate = useNavigate();
   return (
     <div className="container">
       <div className="center">
@@ -39,7 +42,9 @@ const MainHero = () => {
             <span>Already Have an Account</span>
           </h3>
           <div>
-            <button className="loginBtn">Log in</button>
+            <button className="loginBtn" onClick={() => navigate("/")}>
+              Log in
+            </button>
           </div>
         </div>
       </div>
