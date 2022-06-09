@@ -12,7 +12,7 @@ const Home = () =>{
       <div class="button" style={buttonstyle}>
         <RoundedButton text={"View Pet List →"} path={"/cats"} />
       </div>   
-      <img src='./dog.png' style={imgstyle} />  
+      <img src='./dog.png' style={imgstyle} alt="hero"/>  
     </section>
   );
 }
@@ -23,32 +23,33 @@ const namestyle = {
   fontWeight: 'bold',
   position:'absolute',
   left: 180,
-  top:'15%',
-  fontFamily: 'sans-serif'
+  top:'10%',
+  fontFamily: 'Poppins'
 }
 
 const wordstyle = {
-  color: "black",
-  fontSize: '20px',
+  color: "#6C6853",
+  fontSize: '24px',
   fontWeight: 'bold',
-  fontFamily: 'sans-serif',
+  fontFamily: 'Poppins',
   position:'absolute',
-  left: 250,
-  top:'45%',
+  left: 220,
+  top:'43%',
   textAlign: 'center'
 }
 
 const buttonstyle = {
   position:'absolute',
-  left: 205,
-  top:'63%',
+  left: 220,
+  top:'67%',
 }
 
 const imgstyle = {
-  position:'absolute',
-  right: 0,
+  position:'fixed',
+  right: -10,
   height: 620,
-  width: 620
+  width: 620,
+  overflow:'hidden',
 }
 
 export default Home;
