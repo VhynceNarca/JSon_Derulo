@@ -22,8 +22,5 @@ server/npm-debug.log*
 server/yarn-debug.log*
 server/yarn-error.log*
 
-# Keep environment variables out of version control
-server/.env
-
 ## CLIENT GIT-IGNORE ##
 client/node_modules/**/*
