@@ -9,6 +9,8 @@ petRouter.get("/dogs", async (request, response) => {
     const status = "ForAdoption"
     try {
         const get_dogs = await pet.findMany({
+            take: parseInt(limit),
+            skip: parseInt(offset),
             select: {
                 id: true,
                 name: true,
@@ -34,6 +36,8 @@ petRouter.get("/cats", async (request, response) => {
     const status = "ForAdoption"
     try {
         const get_cats = await pet.findMany({
+            take: parseInt(limit),
+            skip: parseInt(offset),
             select: {
                 id: true,
                 name: true,
