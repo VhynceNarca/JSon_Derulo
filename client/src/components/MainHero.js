@@ -28,7 +28,7 @@ const MainHero = () => {
       .then((res) => {
         console.log("Creating user: ", res);
         alert("You are now registered");
-        navigate("/home");
+        navigate("/");
       })
       .catch((err) => console.log(err));
     console.log(user);
