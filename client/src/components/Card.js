@@ -4,6 +4,7 @@ import { FaEdit, FaRegTrashAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 const Card = ({data}) => {
     const navigate = useNavigate()
+    const category = (data.category).toLowerCase()
 
     const editHandler = (e) =>{
         e.stopPropagation();
@@ -17,10 +18,10 @@ const Card = ({data}) => {
         navigate(`/cats/view/${data.id}`)//ilisanan : i route sa delete page or change completely to modal
     }
     return(       
-        <div className="card" onClick={()=>navigate(`/dogs/view/${data.id}`, {state:{data}} )}>
+        <div className="card" onClick={()=>navigate(`/${category}s/view/${data.id}`, {state:{data}} )}>
         <div style={{marginLeft:'3%'}}>
           <p>{data.id}</p>
-          <img src="/buchoy.png" alt="buchoy" style={imgStyle}/>
+          <img src={data.image} alt={data.name} style={imgStyle}/>
           <p style={{marginLeft:'25%'}}>{data.name}</p>
         </div>
         <div style={{justifyContent: 'space-between',marginRight:'5%',width:'250px'}}>

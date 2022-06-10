@@ -20,7 +20,7 @@ const buttonStyle = {
   fontSize: '24px',
   border: '0',
   cursor: 'pointer',
-  width: '400px'
+  width: '400px',
 }
 
 export default RoundedButton;

@@ -1,35 +1,43 @@
 import "../components/navbar.css";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BoxedButton from '../components/BoxedButton';
-import Card from "./Card";
+import Card from "../components/Card";
+import axios from 'axios';
 
 const Cats = () =>{
-  const mockData =[
-    {id: 1, name: 'Cody'},
-    {id: 2, name: 'Neyga'},
-    {id: 3, name: 'Chico'},
-    {id: 1, name: 'Cody'},
-    {id: 2, name: 'Neyga'},
-    {id: 3, name: 'Chico'},
-    {id: 3, name: 'Chico'},
-  ]
-  // console.log(mockData)
+  const url = 'http://localhost:8000/'
+
+  const [cats,setCats] = useState([])
+
+  const getCats =  () =>{
+     axios.get(`${url}pets/cats`)
+    .then((res)=>{
+      setCats(res.data)
+      console.log(res.data)
+    }).catch((err)=>{
+      console.log(err)
+    })
+  }
+
+  useEffect(()=>{
+    getCats()
+  },[])
   return (
     <section className='hero'>
       <div style={{display:'flex', justifyContent: 'space-between',margin:'0 0 50px 0'}} >
         <h1>Cats List</h1>
-        <BoxedButton text={"Add New Pet"} path={"/cats"}/>
+        <BoxedButton text={"Add New Pet"} path={"/dogs"}/> {/* ilisanan pa sad */}
       </div>
-      {mockData.length?
+      {cats.length?
       <>
         <>
-          {mockData.map((data,i)=>
-            <div key={data.id} style={{margin: '20px 0 0 0'}}>
-              <Card data={data}/>
+          {cats.map((cat,i)=>
+            <div key={cat.id} style={{margin: '20px 0 0 0'}}>
+              <Card data={cat}/>
             </div>
           )}
         </>
-        {mockData?.metadata?.links?.previous ? 
+        {/* {cats?.metadata?.links?.previous ? 
           <a
               href="#"
               data-name="previous"
@@ -37,18 +45,18 @@ const Cats = () =>{
           > &lsaquo;Previous </a>
           : ''
       }
-      {mockData?.metadata?.links?.next ? 
+      {cats?.metadata?.links?.next ? 
           <a
               href="#"
               data-name="next"
               // onClick={paginationHandler}
           > Next&rsaquo; </a>
           : ''
-      }
+      } */}
         
       </>
         
-        :<p>waley</p>    
+        :<p style={{fontSize:'30px',fontWeight:'bold'}}>No Cats to Display</p>    
       }
     </section>
   );
