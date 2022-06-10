@@ -40,7 +40,7 @@ const Cats = () =>{
   return (
     <section className='hero'>
       <div style={{display:'flex', justifyContent: 'space-between',margin:'0 0 50px 0'}} >
-        <h1>Cats List</h1>
+        <h1 style={title}>Cats List</h1>
         <BoxedButton text={"Add New Pet"} path={"/dogs"}/> {/* ilisanan pa sad */}
       </div>
       {cats.length?
@@ -60,5 +60,10 @@ const Cats = () =>{
       }
     </section>
   );
+}
+
+const title = {
+  color:' #6C6853',
+  fontSize: '32px',
 }
 export default Cats;
