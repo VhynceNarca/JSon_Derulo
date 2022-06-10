@@ -118,7 +118,7 @@ petRouter.put("/edit/:id", async(request, response) => {
                 description
             }
         })
-        response.json(adopt_pet)
+        response.json(update_pet)
     } catch (err) {
         console.error(err.message)
     }
