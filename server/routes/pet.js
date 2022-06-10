@@ -4,14 +4,14 @@ import { PrismaClient } from "@prisma/client";
 const petRouter = Router()
 const { pet } = new PrismaClient()
 
-petRouter.get("/dogs", async (request, response) => {
+petRouter.get("/dogs/:skip_value", async (request, response) => {
     const category = "Dog"
     const status = "ForAdoption"
     const take_value = 5
-    let { skip_value } = request.body
+    const { skip_value } = request.params
     try {
         const get_dogs = await pet.findMany({
-            skip: skip_value,
+            skip: parseInt(skip_value),
             take: take_value,
             select: {
                 id: true,
@@ -33,14 +33,14 @@ petRouter.get("/dogs", async (request, response) => {
     }
 })
 
-petRouter.get("/cats", async (request, response) => {
+petRouter.get("/cats/:skip_value", async (request, response) => {
     const category = "Cat"
     const status = "ForAdoption"
     const take_value = 5
-    let { skip_value } = request.body
+    const { skip_value } = request.params
     try {
         const get_cats = await pet.findMany({
-            skip: skip_value,
+            skip: parseInt(skip_value),
             take: take_value,
             select: {
                 id: true,
