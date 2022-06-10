@@ -37,4 +37,4 @@ const Pagination = ({getPets,skipValue,length}) =>{
     )
 }
 
-export default Pagination
+export default Pagination;
