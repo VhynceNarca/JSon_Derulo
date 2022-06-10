@@ -1,5 +1,6 @@
 import React from 'react';
 import RoundedButton from '../components/RoundedButton';
+import doggy from "../assets/doggy.png";
 
 const Home = () =>{
   return (
@@ -12,7 +13,7 @@ const Home = () =>{
       <div class="button" style={buttonstyle}>
         <RoundedButton text={"View Pet List →"} path={"/cats"} />
       </div>   
-      <img src='./dog.png' style={imgstyle} alt="hero"/>  
+      <img src={doggy} style={imgstyle} alt="hero"/>  
     </section>
   );
 }
@@ -23,7 +24,7 @@ const namestyle = {
   fontWeight: 'bold',
   position:'absolute',
   left: 180,
-  top:'10%',
+  top:'20%',
   fontFamily: 'Poppins'
 }
 
