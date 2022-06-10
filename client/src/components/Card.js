@@ -1,4 +1,4 @@
-import "../components/navbar.css";
+// import "../components/navbar.css";
 import "../components/card.css"
 import { FaEdit, FaRegTrashAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";

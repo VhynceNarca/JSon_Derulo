@@ -1,0 +1,196 @@
+
+.container {
+  width: 50%;
+  height: 100%;
+  margin-top: 5%;
+}
+
+.logo {
+  height: 68px;
+  padding-right: 20px;
+}
+
+.center h1 {
+  margin-top: 0;
+  color: #ffca7e;
+  letter-spacing: 4px;
+  font-size: 64px;
+}
+
+.subtitle {
+  font-size: 24px;
+  margin-bottom: 5%;
+  color: #6C6853;
+}
+
+.loginBtn {
+  padding: 0.6em 2em;
+  border-radius: 40px;
+  color: black;
+  background-color: white;
+  font-size: 18px;
+  border: 1;
+  margin: 1em;
+  cursor: pointer;
+  width: 50%;
+  border-width: 1px;
+  border-color: black;
+}
+
+.signupBtn {
+  padding: 0.6em 2em;
+  border-radius: 40px;
+  color: #fff;
+  background-color: #ffca7e;
+  font-size: 18px;
+  border: 0;
+  margin: 1em;
+  cursor: pointer;
+  width: 50%;
+}
+
+input {
+  width: 50%;
+  height: 49px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border-radius: 11px;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+form {
+  width: 100%;
+}
+
+.mainhero {
+  display: flex;
+  margin-left: 3%;
+  text-align: center;
+  overflow: hidden;
+}
+
+label {
+  text-align: left;
+  margin-right: 40%;
+  width: 100%;
+  color: rgba(31, 28, 28, 0.4);
+}
+
+.emailNum {
+  text-align: left;
+  margin-right: 28%;
+}
+
+h3 {
+  color: rgb(102, 102, 102);
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+span:after,
+span:before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+h3 .loginspan {
+  font-style: italic;
+}
+
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+  .container {
+    width: 50%;
+    height: 100%;
+    margin-top: 3%;
+  }
+
+  .logo {
+    height: 60px;
+  }
+
+  .center h1 {
+    margin-top: 0;
+    color: #ffca7e;
+    letter-spacing: 4px;
+    font-size: 45px;
+  }
+
+  .subtitle {
+    font-size: 22 px;
+    margin-bottom: 5%;
+    margin-top: 3%;
+  }
+
+  .loginBtn {
+    padding: 0.4em 2em;
+    border-radius: 40px;
+    color: black;
+    background-color: white;
+    font-size: 16px;
+    border: 1;
+    margin: 1em;
+    cursor: pointer;
+    width: 60%;
+    border-width: 1px;
+    border-color: black;
+  }
+
+  .signupBtn {
+    padding: 0.4em 2em;
+    border-radius: 40px;
+    color: #fff;
+    background-color: #ffca7e;
+    font-size: 16px;
+    border: 0;
+    margin: 1em;
+    cursor: pointer;
+    width: 60%;
+  }
+
+  input {
+    width: 60%;
+    height: 35px;
+    padding: 12px 20px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .mainhero {
+    display: flex;
+    margin-left: 3%;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  label {
+    text-align: left;
+    margin-right: 44%;
+    width: 100%;
+    color: rgba(31, 28, 28, 0.4);
+  }
+
+  .emailNum {
+    text-align: left;
+  }
+
+  h3 {
+    color: #6666;
+    font-size: 14px;
+    font-weight: lighter;
+  }
+
+  span:after,
+  span:before {
+    content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+    text-decoration: line-through;
+    color: rgba(0, 0, 0, 0.2);
+  }
+
+  h3 .loginspan {
+    font-style: italic;
+  }
+}

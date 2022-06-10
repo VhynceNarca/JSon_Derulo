@@ -1,5 +1,5 @@
 import {useLocation } from "react-router-dom";
-import "../components/navbar.css";
+// import "../components/navbar.css";
 import RoundedButton from '../components/RoundedButton';
 
 const PetDetail = () =>{

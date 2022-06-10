@@ -1,4 +1,4 @@
-import "../components/navbar.css";
+// import "../components/navbar.css";
 import React, { useEffect, useState } from 'react';
 import BoxedButton from '../components/BoxedButton';
 import Card from "../components/Card";
