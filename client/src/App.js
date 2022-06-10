@@ -7,6 +7,7 @@ import Cats from "./pages/Cats";
 import Home from "./pages/Index";
 import WithNav from "./components/WithNav";
 import WithoutNav from "./components/WithoutNav";
+import PetDetail from "./pages/PetDetail";
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/dogs" element={<Dogs />} />
           <Route path="/cats" element={<Cats />} />
+          <Route path="dogs/view/:id" element={<PetDetail/>}/>
+          <Route path="cats/view/:id" element={<PetDetail/>}/>
         </Route>
       </Routes>
     </Router>
