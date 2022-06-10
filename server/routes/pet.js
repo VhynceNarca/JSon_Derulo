@@ -7,14 +7,12 @@ const { pet } = new PrismaClient()
 petRouter.get("/dogs", async (request, response) => {
     const category = "Dog"
     const status = "ForAdoption"
+    const take_value = 5
+    let { skip_value } = request.body
     try {
         const get_dogs = await pet.findMany({
-            take: parseInt(limit),
-            skip: parseInt(offset),
-            cursor: {
-                next: nxt,
-                prev: prv,
-            },
+            skip: skip_value,
+            take: take_value,
             select: {
                 id: true,
                 name: true,
@@ -29,8 +27,6 @@ petRouter.get("/dogs", async (request, response) => {
                 status
             }
         })
-        nxt = get_dogs[parseInt(limit)-1]
-        prv = get_dogs[0]
         response.json(get_dogs)
     } catch (err) {
         console.error(err.message)
@@ -40,14 +36,12 @@ petRouter.get("/dogs", async (request, response) => {
 petRouter.get("/cats", async (request, response) => {
     const category = "Cat"
     const status = "ForAdoption"
+    const take_value = 5
+    let { skip_value } = request.body
     try {
         const get_cats = await pet.findMany({
-            take: parseInt(limit),
-            skip: parseInt(offset),
-            cursor: {
-                next: nxt,
-                prev: prv,
-            },
+            skip: skip_value,
+            take: take_value,
             select: {
                 id: true,
                 name: true,
@@ -62,8 +56,6 @@ petRouter.get("/cats", async (request, response) => {
                 status
             }
         })
-        nxt = get_cats[parseInt(limit)-1]
-        prv = get_cats[0]
         response.json(get_cats)
     } catch (err) {
         console.error(err.message)
@@ -111,19 +103,36 @@ petRouter.post("/register", async(request, response) => {
     }
 })
 
-petRouter.put("/adopt/:id", async(request, response) => {
+petRouter.put("/edit/:id", async(request, response) => {
     const { id } = request.params
-    const update_status = "Adopted"
+    const { name, image, breed, description } = request.body
     try {
-        const adopt_pet = await pet.update({
+        const update_pet = await pet.update({
             where: {
                 id: parseInt(id)
             },
             data: {
-                status: update_status
+                name,
+                image,
+                breed, 
+                description
             }
         })
-        response.json(adopt_pet)
+        response.json(update_pet)
+    } catch (err) {
+        console.error(err.message)
+    }
+})
+
+petRouter.delete("/delete/:id", async(request, response) => {
+    const { id } = request.params
+    try {
+        const delete_pet = await pet.delete({
+            where: {
+                id: parseInt(id)
+            }
+        })
+        response.json(delete_pet)
     } catch (err) {
         console.error(err.message)
     }
