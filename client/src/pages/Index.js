@@ -24,7 +24,7 @@ const namestyle = {
   fontWeight: 'bold',
   position:'absolute',
   left: 180,
-  top:'20%',
+  top:'10%',
   fontFamily: 'Poppins'
 }
 
