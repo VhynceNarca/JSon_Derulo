@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
 * {
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -22,6 +23,7 @@ li {
   color: #FFCA7E;
   white-space:nowrap;
   padding-left: 1.5vw;
+  font-family: 'Poppins', sans-serif;
 }
 
 .imglogo {
@@ -50,6 +52,7 @@ li {
   margin: 0 20px;
   cursor: pointer;
   text-transform: capitalize;
+  font-family: 'Poppins', sans-serif;
 }
 
 .nav-links li:hover {

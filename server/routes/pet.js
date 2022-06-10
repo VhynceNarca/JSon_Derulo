@@ -9,6 +9,12 @@ petRouter.get("/dogs", async (request, response) => {
     const status = "ForAdoption"
     try {
         const get_dogs = await pet.findMany({
+            take: parseInt(limit),
+            skip: parseInt(offset),
+            cursor: {
+                next: nxt,
+                prev: prv,
+            },
             select: {
                 id: true,
                 name: true,
@@ -23,6 +29,8 @@ petRouter.get("/dogs", async (request, response) => {
                 status
             }
         })
+        nxt = get_dogs[parseInt(limit)-1]
+        prv = get_dogs[0]
         response.json(get_dogs)
     } catch (err) {
         console.error(err.message)
@@ -34,6 +42,12 @@ petRouter.get("/cats", async (request, response) => {
     const status = "ForAdoption"
     try {
         const get_cats = await pet.findMany({
+            take: parseInt(limit),
+            skip: parseInt(offset),
+            cursor: {
+                next: nxt,
+                prev: prv,
+            },
             select: {
                 id: true,
                 name: true,
@@ -42,12 +56,14 @@ petRouter.get("/cats", async (request, response) => {
                 breed: true,
                 status: true,
                 description: true
-            },
+            }, 
             where: {
                 category,
                 status
             }
         })
+        nxt = get_cats[parseInt(limit)-1]
+        prv = get_cats[0]
         response.json(get_cats)
     } catch (err) {
         console.error(err.message)
