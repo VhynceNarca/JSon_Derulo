@@ -33,6 +33,22 @@ petRouter.get("/dogs/:skip_value", async (request, response) => {
     }
 })
 
+petRouter.get("/dogcount", async (request, response) => {
+    const category = "Dog"
+    const status = "ForAdoption"
+    try {
+        const dog_count = await pet.count({
+            where: {
+                category,
+                status
+            }
+        })
+        response.json(dog_count)
+    } catch (err) {
+        console.error(err.message)
+    }
+})
+
 petRouter.get("/cats/:skip_value", async (request, response) => {
     const category = "Cat"
     const status = "ForAdoption"
@@ -57,6 +73,22 @@ petRouter.get("/cats/:skip_value", async (request, response) => {
             }
         })
         response.json(get_cats)
+    } catch (err) {
+        console.error(err.message)
+    }
+})
+
+petRouter.get("/catcount", async (request, response) => {
+    const category = "Cat"
+    const status = "ForAdoption"
+    try {
+        const cat_count = await pet.count({
+            where: {
+                category,
+                status
+            }
+        })
+        response.json(cat_count)
     } catch (err) {
         console.error(err.message)
     }
