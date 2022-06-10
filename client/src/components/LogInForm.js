@@ -25,7 +25,7 @@ const LogInForm = () => {
       })
       .then((res) => {
         console.log(res.data);
-        navigate("/");
+        navigate("/home");
       })
       .catch((err) => {
         console.log(err);
