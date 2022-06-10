@@ -27,6 +27,7 @@
 .subtitle {
   font-size: 24px;
   margin-bottom: 5%;
+  color: #6C6853;
 }
 
 .loginBtn {
@@ -109,7 +110,7 @@ h3 .loginspan {
   .container {
     width: 50%;
     height: 100%;
-    margin-top: 4%;
+    margin-top: 3%;
   }
 
   .logo {
@@ -124,8 +125,9 @@ h3 .loginspan {
   }
 
   .subtitle {
-    font-size: 18px;
-    margin-bottom: 7%;
+    font-size: 22 px;
+    margin-bottom: 5%;
+    margin-top: 3%;
   }
 
   .loginBtn {
@@ -180,7 +182,6 @@ h3 .loginspan {
 
   .emailNum {
     text-align: left;
-    margin-right: 24%;
   }
 
   h3 {
