@@ -22,7 +22,8 @@ li {
   font-size: 32px;
   color: #FFCA7E;
   white-space:nowrap;
-  padding-left: 1.5vw;
+  padding-left: 1vw;
+  padding-top: 2%;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -35,7 +36,8 @@ li {
   display:flex;
   align-items:center;
   justify-content:space-between;
-  width:16vw;
+  width: 20pxvw;
+  margin-left: 1.5vw;
 }
 
 .nav-links {
