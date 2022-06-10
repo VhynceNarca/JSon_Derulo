@@ -3,15 +3,18 @@ import React, { useEffect, useState } from 'react';
 import BoxedButton from '../components/BoxedButton';
 import Card from "../components/Card";
 import axios from 'axios';
+import Pagination from "../components/Pagination";
 const Dogs = () =>{
 
   const url = 'http://localhost:8000/'
 
   const [dogs,setDogs] = useState([])
+  const [skipValue,setSkipValue] = useState(0)
+  const [dogCount,setDogCount] = useState(0)
 
-  const getDogs =  () =>{
-    console.log('nisud')
-     axios.get(`${url}pets/dogs`)
+  const getDogs =  (skipValue) =>{
+    setSkipValue(skipValue)
+     axios.get(`${url}pets/dogs/${skipValue}`)
     .then((res)=>{
       setDogs(res.data)
       console.log(res.data)
@@ -20,9 +23,22 @@ const Dogs = () =>{
     })
   }
 
+  const getDogCount = () =>{
+    axios.get(`${url}pets/dogCount`)
+    .then((res)=>{
+      setDogCount(res.data)
+      console.log(res.data)
+    }).catch((err)=>{
+      console.log(err)
+    })
+  }
+ 
   useEffect(()=>{
-    getDogs()
+    getDogs(skipValue)
+    getDogCount()
   },[])
+
+
 
   return (
     <section className='hero'>
@@ -39,22 +55,7 @@ const Dogs = () =>{
             </div>
           )}
         </>
-        {/* {mockData?.metadata?.links?.previous ? 
-          <a
-              href="#"
-              data-name="previous"
-              // onClick={paginationHandler}
-          > &lsaquo;Previous </a>
-          : ''
-      }
-      {mockData?.metadata?.links?.next ? 
-          <a
-              href="#"
-              data-name="next"
-              // onClick={paginationHandler}
-          > Next&rsaquo; </a>
-          : ''
-      } */}
+        <Pagination getPets={getDogs} skipValue={skipValue} length={dogCount}/>
         
       </>
         

@@ -3,14 +3,18 @@ import React, { useEffect, useState } from 'react';
 import BoxedButton from '../components/BoxedButton';
 import Card from "../components/Card";
 import axios from 'axios';
+import Pagination from "../components/Pagination";
 
 const Cats = () =>{
   const url = 'http://localhost:8000/'
 
   const [cats,setCats] = useState([])
+  const [skipValue,setSkipValue] = useState(0)
+  const [catCount,setCatCount] = useState(0)
 
-  const getCats =  () =>{
-     axios.get(`${url}pets/cats`)
+  const getCats =  (skipValue) =>{
+    setSkipValue(skipValue)
+     axios.get(`${url}pets/cats/${skipValue}`)
     .then((res)=>{
       setCats(res.data)
       console.log(res.data)
@@ -19,8 +23,19 @@ const Cats = () =>{
     })
   }
 
+  const getCatCount = () =>{
+    axios.get(`${url}pets/catCount`)
+    .then((res)=>{
+      setCatCount(res.data)
+      console.log(res.data)
+    }).catch((err)=>{
+      console.log(err)
+    })
+  }
+ 
   useEffect(()=>{
-    getCats()
+    getCats(skipValue)
+    getCatCount()
   },[])
   return (
     <section className='hero'>
@@ -37,22 +52,7 @@ const Cats = () =>{
             </div>
           )}
         </>
-        {/* {cats?.metadata?.links?.previous ? 
-          <a
-              href="#"
-              data-name="previous"
-              // onClick={paginationHandler}
-          > &lsaquo;Previous </a>
-          : ''
-      }
-      {cats?.metadata?.links?.next ? 
-          <a
-              href="#"
-              data-name="next"
-              // onClick={paginationHandler}
-          > Next&rsaquo; </a>
-          : ''
-      } */}
+        <Pagination getPets={getCats} skipValue={skipValue} length={catCount}/>
         
       </>
         
