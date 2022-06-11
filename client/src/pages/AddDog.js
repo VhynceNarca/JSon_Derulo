@@ -1,5 +1,5 @@
 import React, {useReducer, useState} from 'react'
-import './AddPet.css';
+import './Pet.css';
 import logo from '../assets/logo.png';
 import Axios from 'axios';
 
@@ -9,11 +9,7 @@ const formReducer = (state, event) => {
         return {
           name: '',
           breed: '',
-          //gender: '',
-          //age: '',
           petDesc: '',
-          //healthDesc: '',
-          //adoptFee: '',
         }
       }
 
@@ -63,9 +59,9 @@ function AddDog() {
 
   return (
     <>
-        <div className="container">
+        <div className="container-pet">
             <div className="center">
-                <img src={logo} className="logo" alt=""/>
+                <img src={logo} className="logo-pet" alt=""/>
                 <h1 className="title">Paw Society</h1>
                 <h2 className="subtitle">Adoption Form</h2>
                 <div className = "form-box">        
@@ -119,52 +115,3 @@ function AddDog() {
 }
 
 export default AddDog
-
-/*
-                {submitting &&
-                    <div>
-                        You are submitting the following:
-                        <ul>
-                            {Object.entries(formData).map(([name, value]) => (
-                                <li key={name}><strong>{name}</strong>:{value.toString()}</li>
-                            ))}
-                        </ul>
-                    </div>
-                }
-<label>Pet Age n' Gender:</label> 
-
-                    <select name="age" onChange={handleChange} value = {formData.age || 'Young'}>
-                        <option value="Young">Young</option>
-                        <option value="Adult">Adult</option>
-                    </select>
-
-
-
-                    <select name="gender" onChange={handleChange} value = {formData.gender || 'Male'}>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
-
-                    <label>Pet Fee:</label>
-
-                    <input 
-                        type ="number" 
-                        min = "0"
-                        className = "form-input"
-                        name ="adoptFee" 
-                        placeholder="$50"
-                        onChange ={handleChange} 
-                        value = {formData.adoptFee|| ''}
-                    />
-
-                                        <label>Pet Health:</label> 
-
-                    <input 
-                        type ="text" 
-                        className = "form-input"
-                        name ="healthDesc" 
-                        placeholder="Vaccinations up to date, spayed / neutered."
-                        onChange ={handleChange} 
-                        value = {formData.healthDesc|| ''}
-                    /> 
-*/

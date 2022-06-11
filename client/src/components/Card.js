@@ -8,13 +8,11 @@ const Card = ({data}) => {
 
     const editHandler = (e) =>{
         e.stopPropagation();
-        alert('edit')
         navigate(`/cats/edit/${data.id}`,{state:{data}})//ilisanan : i route sa edit page
     }
 
     const deleteHandler = (e) =>{
         e.stopPropagation();
-        alert('delete')
         navigate(`/cats/delete/${data.id}`,{state:{data}})//ilisanan : i route sa delete page or change completely to modal
     }
     return(       

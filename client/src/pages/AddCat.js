@@ -1,5 +1,5 @@
 import React, {useReducer, useState} from 'react'
-import './AddPet.css';
+import './Pet.css';
 import logo from '../assets/logo.png';
 import Axios from 'axios';
 
@@ -9,11 +9,7 @@ const formReducer = (state, event) => {
         return {
           name: '',
           breed: '',
-          //gender: '',
-          //age: '',
           petDesc: '',
-          //healthDesc: '',
-          //adoptFee: '',
         }
       }
 
@@ -63,9 +59,9 @@ function AddCat() {
 
   return (
     <>
-        <div className="container">
+        <div className="container-pet">
             <div className="center">
-                <img src={logo} className="logo" alt=""/>
+                <img src={logo} className="logo-pet" alt=""/>
                 <h1 className="title">Paw Society</h1>
                 <h2 className="subtitle">Adoption Form</h2>
                 <div className = "form-box">        

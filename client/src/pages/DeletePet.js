@@ -1,6 +1,5 @@
 import React from 'react'
-import './DeletePet.css';
-import logo from '../assets/logo.png';
+import './Pet.css';
 import {useNavigate, useLocation } from "react-router-dom";
 import Axios from 'axios';
 
@@ -13,26 +12,23 @@ function DeletePet() {
   const deletefromDb = () => {
     Axios.delete(`pets/delete/${data.id}`).then(() => {
         console.log("success");
-        navigate('/home')
+        navigate(-1)
     });
  }
 
- const gohome = () => {
-
-    navigate('/home')
+ const goBack = () => {
+    navigate(-1)
 }
 
   return (
     <>
-        <div className="container">
-            <div className="center">
-                <img src={logo} className="logo" alt=""/>
-                <h1 className="title">Remove pet from List?</h1>
-                <h2 className="subtitle">Doing so will remove pet for adoption</h2>
+        <div className="container-delete">
+            <div className="center">  
+                <h2 className="subtitle">Are you sure you want to remove a pet from adoption List?</h2>
                 
                 <div className="buttons">
                   <button  onClick={deletefromDb} className = "yesBtn"> Yes </button>
-                  <button  onClick={gohome} className = "noBtn"> No </button>
+                  <button  onClick={goBack} className = "noBtn"> No </button>
                 </div>   
                 
             </div>
