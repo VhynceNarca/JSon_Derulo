@@ -8,7 +8,7 @@ Running Server
 - change directory to "server"
 - run "npm install"
 - run "npm install -g nodemon" (naa nis dev dependencies pero for some reason di mogana ang nodemon sa ako if di ma install globally)
-- run "prisma migrate dev"
+- run "npx prisma migrate dev"
 - run "nodemon index.js" (pag start sa server)
 - run "npx prisma studio" (makita ang mga sud sa database without going to pgAdmin)
 

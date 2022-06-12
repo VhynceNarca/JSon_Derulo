@@ -22,7 +22,8 @@ li {
   font-size: 32px;
   color: #FFCA7E;
   white-space:nowrap;
-  padding-left: 1.5vw;
+  padding-left: 1vw;
+  padding-top: 2%;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -35,7 +36,8 @@ li {
   display:flex;
   align-items:center;
   justify-content:space-between;
-  width:16vw;
+  width: 20pxvw;
+  margin-left: 1.5vw;
 }
 
 .nav-links {
@@ -60,10 +62,14 @@ li {
 }
 
 .hero {
+  height: 100vh;
   text-align: center;
-  margin-top: 15%;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 10%;
 }
 .hero h1 {
   text-align: center;
-  font-size: 80px;
+  font-size: 30px;
 }
