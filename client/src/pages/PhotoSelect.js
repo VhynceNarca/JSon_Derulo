@@ -1,0 +1,33 @@
+const PHOTOS = {
+    dog1: require('../assets/PETS/ada.jpg'),
+    dog2: require('../assets/PETS/ali.jpg'),
+    dog3: require('../assets/PETS/arkon.jpg'),
+    dog4: require('../assets/PETS/bantay.jpg'),
+    dog5: require('../assets/PETS/bardot.jpg'),
+    dog6: require('../assets/PETS/big.jpg'),
+    dog7: require('../assets/PETS/boomer.jpg'),
+    dog8: require('../assets/PETS/ero.jpg'),
+    dog9: require('../assets/PETS/jackie.jpg'),
+    dog10: require('../assets/PETS/kabang.jpg'),
+    dog11: require('../assets/PETS/marco.jpg'),
+    dog12: require('../assets/PETS/mazda.jpg'),
+    dog13: require('../assets/PETS/pacman.jpg'),
+    dog14: require('../assets/PETS/patotoy.jpg'),
+    dog15: require('../assets/PETS/rica.jpg'),
+    dog16: require('../assets/PETS/rico.jpg'),
+    dog17: require('../assets/PETS/rosie.jpg'),
+    dog18: require('../assets/PETS/white.jpg'),
+    cat1: require('../assets/PETS/buchoy.jpg'),
+    cat2: require('../assets/PETS/catmon.jpg'),
+    cat3: require('../assets/PETS/ginger.jpg'),
+    cat4: require('../assets/PETS/kat.jpg'),
+    cat5: require('../assets/PETS/meming.jpg'),
+    cat6: require('../assets/PETS/muning.jpg'),
+    cat7: require('../assets/PETS/puti.png'),
+    cat8: require('../assets/PETS/sam.png'),
+    cat9: require('../assets/PETS/snow white.jpg'),
+    cat10: require('../assets/PETS/snowbell.jpg'),
+
+}
+
+export default PHOTOS;
