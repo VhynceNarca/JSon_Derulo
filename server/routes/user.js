@@ -1,7 +1,9 @@
 import { Router } from "express";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Role } from "@prisma/client";
+import jsonwebtoken from "jsonwebtoken";
 
 const userRouter = Router()
+const jwt = jsonwebtoken;
 const { user } = new PrismaClient()
 
 userRouter.get("/", async(request, response) => {
@@ -53,7 +55,8 @@ userRouter.post("/login", async (request, response) => {
         const user_exists = await user.findUnique({
             select: {
                 email: true,
-                password: true
+                password: true,
+                role: true
             }, 
             where: {
                 email
@@ -63,7 +66,14 @@ userRouter.post("/login", async (request, response) => {
             response.sendStatus(400)
         }
         else if (user_exists.email == email && user_exists.password == password) {
-            response.sendStatus(200)
+            if (user_exists.role == "Admin"){
+                jwt.sign({ user_exists }, "secretKey", (err, token) => {
+                    response.json({
+                      token,
+                      user_exists
+                    });
+                });
+            }
         }
         else {
             response.sendStatus(404)
