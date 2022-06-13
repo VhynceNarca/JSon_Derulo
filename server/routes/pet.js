@@ -1,7 +1,9 @@
 import { Router } from "express";
 import { PrismaClient } from "@prisma/client";
+import jsonwebtoken from "jsonwebtoken";
 
 const petRouter = Router()
+const jwt = jsonwebtoken;
 const { pet } = new PrismaClient()
 
 petRouter.get("/dogs/:skip_value", async (request, response) => {
@@ -117,9 +119,17 @@ petRouter.get("/:id", async(request, response) => {
     }
 })
 
-petRouter.post("/register", async(request, response) => {
+petRouter.post("/register", verifyToken, async(request, response) => {
     const { name, category, image, breed, description } = request.body
+    let user_data = ""
     try {
+        jwt.verify(request.token, "secretKey", (err, authData) => {
+            if (err) {
+              response.sendStatus(403);
+            } else {
+              user_data = authData;
+            }
+          });
         const register_pet = await pet.create({
             data: {
                 name,
@@ -170,4 +180,16 @@ petRouter.delete("/delete/:id", async(request, response) => {
     }
 })
 
+function verifyToken(request, response, next) {
+    const bearerHeader = request.headers["authorization"];
+    if (typeof bearerHeader !== "undefined") {
+      const bearer = bearerHeader.split(" ");
+      const bearerToken = bearer[1];
+      request.token = bearerToken;
+      next();
+    } else {
+      response.sendStatus(403);
+    }
+  }
+  
 export { petRouter }
