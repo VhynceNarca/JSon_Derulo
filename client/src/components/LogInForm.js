@@ -16,25 +16,30 @@ const LogInForm = () => {
     setUserDeets({ ...userDeets, [e.target.name]: e.target.value });
   };
 
+  const navigate = useNavigate();
+
   const submitDeets = async (e) => {
     e.preventDefault();
-    axios
-      .post("users/login", {
-        email: userDeets.email,
-        password: userDeets.password,
-      })
+    const response = await axios
+      .post(
+        "users/login",
+        {
+          email: userDeets.email,
+          password: userDeets.password,
+        },
+        { withCredentials: true }
+      )
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data.token);
+        localStorage.setItem("token", res.data.token);
         navigate("/home");
       })
       .catch((err) => {
         console.log(err);
         alert("Email or Password is incorrect");
       });
-    console.log(userDeets);
   };
 
-  const navigate = useNavigate();
   return (
     <div className="container">
       <div className="center">
