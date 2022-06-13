@@ -41,7 +41,7 @@ const Cats = () =>{
     <section className='hero'>
       <div style={{display:'flex', justifyContent: 'space-between',margin:'0 0 50px 0'}} >
         <h1 style={title}>Cats List</h1>
-        <BoxedButton text={"Add New Pet"} path={"/dogs"}/> {/* ilisanan pa sad */}
+        <BoxedButton text={"Add New Pet"} path={"/cats/addcat"}/> {/* ilisanan pa sad */}
       </div>
       {cats.length?
       <>
