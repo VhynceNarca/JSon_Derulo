@@ -1,0 +1,33 @@
+const PHOTOS = {
+    dog1: ('/PETS/ada.jpg'),
+    dog2: ('/PETS/ali.jpg'),
+    dog3: ('/PETS/arkon.jpg'),
+    dog4: ('/PETS/bantay.jpg'),
+    dog5: ('/PETS/bardot.jpg'),
+    dog6: ('/PETS/big.jpg'),
+    dog7: ('/PETS/boomer.jpg'),
+    dog8: ('/PETS/ero.jpg'),
+    dog9: ('/PETS/jackie.jpg'),
+    dog10: ('/PETS/kabang.jpg'),
+    dog11: ('/PETS/marco.jpg'),
+    dog12: ('/PETS/mazda.jpg'),
+    dog13: ('/PETS/pacman.jpg'),
+    dog14: ('/PETS/patotoy.jpg'),
+    dog15: ('/PETS/rica.jpg'),
+    dog16: ('/PETS/rico.jpg'),
+    dog17: ('/PETS/rosie.jpg'),
+    dog18: ('/PETS/white.jpg'),
+    cat1: ('/PETS/buchoy.jpg'),
+    cat2: ('/PETS/catmon.jpg'),
+    cat3: ('/PETS/ginger.jpg'),
+    cat4: ('/PETS/kat.jpg'),
+    cat5: ('/PETS/meming.jpg'),
+    cat6: ('/PETS/muning.jpg'),
+    cat7: ('/PETS/puti.png'),
+    cat8: ('/PETS/sam.png'),
+    cat9: ('/PETS/snow white.jpg'),
+    cat10: ('/PETS/snowbell.jpg'),
+
+}
+
+export default PHOTOS;
