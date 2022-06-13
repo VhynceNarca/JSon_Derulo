@@ -61,6 +61,7 @@ function AddDog() {
       padding: 10,
     }),
   };
+}
 
   const buttonStyle = {
     padding: '0.3em 0.5em',
@@ -71,7 +72,7 @@ function AddDog() {
     fontSize: '15px',
     border: '0',
     cursor: 'pointer',
-    width: '150px',
+    width: '120px',
     display:'flex', 
     justifyContent:'space-between',
     alignItems:'center',
@@ -133,6 +134,5 @@ function AddDog() {
       </div>
     </>
   );
-}
 }
 export default AddDog

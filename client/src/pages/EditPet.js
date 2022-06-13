@@ -78,6 +78,21 @@ function EditPet() {
     //console.log(formData.image)
  }
 
+ const buttonStyle = {
+  padding: '0.3em 0.5em',
+  margin: '10px 0 0 0',
+  borderRadius: '5px',
+  color: '#fff',
+  backgroundColor: '#FFCA7E',
+  fontSize: '15px',
+  border: '0',
+  cursor: 'pointer',
+  width: '120px',
+  display:'flex', 
+  justifyContent:'space-between',
+  alignItems:'center',
+}
+
   return (
     <>
         <div className="container-pet">
@@ -103,7 +118,7 @@ function EditPet() {
 
                 <label>Photo of Pet:</label> 
                     
-                <button onClick={() => openFileSelector()}>Select Photo</button>
+                <button style={buttonStyle} onClick={() => openFileSelector()}>Select Photo</button>
 
 
                 <label>Breed of Pet:</label> 

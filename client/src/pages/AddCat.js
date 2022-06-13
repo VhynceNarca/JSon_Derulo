@@ -79,29 +79,6 @@ function AddCat() {
     //console.log(formData.image)
  }
 
-/*
- const photos = [
-    { name:'image' ,value: 'buchoy.jpg', label: 'buchoy', image: PHOTOS.cat1 },
-    { name:'image' ,value:'catmon.jpg', label: 'catmon', image: PHOTOS.cat2 },
-    { name:'image' ,value: 'ginger.jpg', label: 'ginger', image: PHOTOS.cat3 },
-    { name:'image' ,value:'kat.jpg', label: 'kat', image: PHOTOS.cat4 },
-    { name:'image' ,value: 'meming.jpg', label: 'meming', image: PHOTOS.cat5 },
-    { name:'image' ,value:'muning.jpg', label: 'muning', image: PHOTOS.cat6 },
-    { name:'image' ,value: 'puti.png', label: 'puti', image: PHOTOS.cat7 },
-    { name:'image' ,value:'sam.png', label: 'sam', image: PHOTOS.cat8 },
-    { name:'image' ,value: 'snow white.jpg', label: 'snow white', image: PHOTOS.cat9 },
-    { name:'image' ,value:'snowbell.jpg', label: 'snowbell', image: PHOTOS.cat10 },
-
-  ];
-
- const selectStyle ={
-    option: (provided, state) => ({
-        ...provided,
-        color: state.isSelected ? 'red' : 'blue',
-        padding: 10,
-
-    }),
- }*/
  const buttonStyle = {
     padding: '0.3em 0.5em',
     margin: '10px 0 0 0',
@@ -111,7 +88,7 @@ function AddCat() {
     fontSize: '15px',
     border: '0',
     cursor: 'pointer',
-    width: '150px',
+    width: '120px',
     display:'flex', 
     justifyContent:'space-between',
     alignItems:'center',
