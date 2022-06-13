@@ -1,6 +1,6 @@
 import React, {useReducer, useState} from 'react';
 import ReactSelect from "react-select";
-import './AddPet.css';
+import './Pet.css';
 import logo from '../assets/logo.png';
 import Axios from 'axios';
 import PHOTOS from './PhotoSelect';
@@ -13,11 +13,7 @@ const formReducer = (state, event) => {
           name: '',
           breed: '',
           image: '',
-          //gender: '',
-          //age: '',
           petDesc: '',
-          //healthDesc: '',
-          //adoptFee: '',
         }
       }
 
@@ -50,7 +46,6 @@ function AddDog() {
  }
 
  const handleChange = event => {
-    //console.log(event.target.name)
     setFormData({
       name: event.target.name,
       value: event.target.value,
@@ -62,8 +57,6 @@ function AddDog() {
 
  const addtoDB = () => {
     console.log(formData.image);
-    //console.log(filesContent[0].content);
-    //openFileSelector();
     Axios.post('pets/register',{
         name: formData.name,
         category: "Dog",
@@ -76,9 +69,7 @@ function AddDog() {
  }
 
  function selectChange(value){
-    //console.log(value.value)
     formData.image = value.value
-    //console.log(formData.image)
  }
 
 
@@ -115,9 +106,9 @@ function AddDog() {
 
   return (
     <>
-        <div className="container">
+        <div className="container-pet">
             <div className="center">
-                <img src={logo} className="logo" alt=""/>
+                <img src={logo} className="logo-pet" alt=""/>
                 <h1 className="title">Paw Society</h1>
                 <h2 className="subtitle">Adoption Form</h2>
                 <div className = "form-box">        
@@ -149,8 +140,6 @@ function AddDog() {
                             formatOptionLabel={photo => (
                             <div className="photo-option">
                                 <img className="selectIMGS" src={photo.image} alt="Dog"/>
-                                {/*<span>{photo.label}</span>*/}
-                                
                             </div>
                             )}
                             
@@ -193,83 +182,3 @@ function AddDog() {
 }
 
 export default AddDog
-
-/*
-                    <div className="photo-options">
-                        <img src={dog1} className="selectIMGS" alt="DOG1"/>
-                        <img src={dog1} className="selectIMGS" alt="DOG1"/>
-                        <img src={dog1} className="selectIMGS" alt="DOG1"/>
-                        <img src={dog1} className="selectIMGS" alt="DOG1"/>
-                        <img src={dog1} className="selectIMGS" alt="DOG1"/>
-                        <img src={dog1} className="selectIMGS" alt="DOG1"/>
-                        <img src={dog1} className="selectIMGS" alt="DOG1"/>
-                        <img src={dog1} className="selectIMGS" alt="DOG1"/>
-                        <img src={dog1} className="selectIMGS" alt="DOG1"/>
-                        <img src={dog1} className="selectIMGS" alt="DOG1"/>
-                        <img src={dog1} className="selectIMGS" alt="DOG1"/>
-                        <img src={dog1} className="selectIMGS" alt="DOG1"/>
-                        <img src={dog1} className="selectIMGS" alt="DOG1"/>
-                        <img src={dog1} className="selectIMGS" alt="DOG1"/>
-                        <img src={dog1} className="selectIMGS" alt="DOG1"/>
-                        <img src={dog1} className="selectIMGS" alt="DOG1"/>
-
-                    </div>
-<ReactSelect
-                        value = {formData.photo || ''}
-                        options={photos}
-                        formatOptionLabel={photo => (''
-                          //<div className="photo-option">
-                            //{/*<img className="selectIMGS" src={photo.image} alt="country-image"/>}
-                            //{/*<span>{photo.label}</span>}
-                          //</div>
-                          )}
-                          />
-<button onClick={() => openFileSelector()}> Select Photo </button>
-
-{submitting &&
-                    <div>
-                        You are submitting the following:
-                        <ul>
-                            {Object.entries(formData).map(([name, value]) => (
-                                <li key={name}><strong>{name}</strong>:{value.toString()}</li>
-                            ))}
-                        </ul>
-                    </div>
-                }
-<label>Pet Age n' Gender:</label> 
-
-                    <select name="age" onChange={handleChange} value = {formData.age || 'Young'}>
-                        <option value="Young">Young</option>
-                        <option value="Adult">Adult</option>
-                    </select>
-
-
-
-                    <select name="gender" onChange={handleChange} value = {formData.gender || 'Male'}>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
-
-                    <label>Pet Fee:</label>
-
-                    <input 
-                        type ="number" 
-                        min = "0"
-                        className = "form-input"
-                        name ="adoptFee" 
-                        placeholder="$50"
-                        onChange ={handleChange} 
-                        value = {formData.adoptFee|| ''}
-                    />
-
-                                        <label>Pet Health:</label> 
-
-                    <input 
-                        type ="text" 
-                        className = "form-input"
-                        name ="healthDesc" 
-                        placeholder="Vaccinations up to date, spayed / neutered."
-                        onChange ={handleChange} 
-                        value = {formData.healthDesc|| ''}
-                    /> 
-*/
