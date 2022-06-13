@@ -1,5 +1,6 @@
-import React, {useReducer} from 'react'
+import React, {useReducer,useState} from 'react'
 import {useNavigate, useLocation } from "react-router-dom";
+import { useFilePicker } from 'use-file-picker';
 import ReactSelect from "react-select";
 import './AddPet.css';
 import logo from '../assets/logo.png';
@@ -33,49 +34,56 @@ function EditPet() {
     const data = location.state.data
     const navigate = useNavigate()
 
- const [formData, setFormData] = useReducer(formReducer, {
-    count: 100,
- });  
- //const [submitting, setSubmitting] = useState(false);
-  const handleSubmit = event => {
-    event.preventDefault();
-   //setSubmitting(true);
-
-   setTimeout(() => {
-     //setSubmitting(false);
-     setFormData({
-        reset: true
-      })
-   }, 3000)
- }
-
- const handleChange = event => {
-    setFormData({
-      name: event.target.name,
-      value: event.target.value,
-    });
-}
-
-
- const editDB = () => {
-    Axios.put(`pets/edit/${data.id}`,{
-        name: formData.name,
-        category: data.category,
-        image: `../assets/PETS/${formData.image}`,
-        breed: formData.breed,
-        description: formData.petDesc
-    }).then(() => {
-        console.log("success");
-        navigate('/home')
-    });
- }
+    const [formData, setFormData] = useState({
+        name: "",
+        category: "", //`../assets/${filesContent[0].name}`,
+        breed: "",
+        description: "",
+      });
+    
+      const [openFileSelector, { filesContent, loading, errors, plainFiles }] =
+        useFilePicker({
+          multiple: false,
+          readAs: "DataURL", // availible formats: "Text" | "BinaryString" | "ArrayBuffer" | "DataURL"
+          accept: [".jpg", ".png"],
+        });
+    
+      const handleChange = (event) => {
+        setFormData({ ...formData, [event.target.name]: event.target.value });
+      };
+    
+      const token = localStorage.getItem("token");
+    
+      const config = {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      };
+    
+      const bodyParameters = {
+        key: "value",
+      };
+    
+      const handleSubmit = (event) => {
+        event.preventDefault();
+        Axios.put(`pets/edit/${data.id}`,{
+            name: formData.name,
+            category: data.category,
+            image: `/assets/PETS/${filesContent[0].name}`,
+            breed: formData.breed,
+            description: formData.petDesc
+        }).then(() => {
+            console.log("success");
+            //navigate('/home');
+        });
+      };
 
  function selectChange(value){
     //console.log(value.value)
     formData.image = value.value
     //console.log(formData.image)
  }
-
+/*
  const photos = [
     { name:'image' ,value: 'ada.jpg', label: 'Ada', image: PHOTOS.dog1 },
     { name:'image' ,value:'ali.jpg', label: 'Ali', image: PHOTOS.dog2 },
@@ -116,7 +124,7 @@ function EditPet() {
 
     }),
  }
-
+*/
 
   return (
     <>
@@ -143,24 +151,8 @@ function EditPet() {
 
                 <label>Photo of Pet:</label> 
                     
+                <button onClick={() => openFileSelector()}>Select Photo</button>
 
-                    <div className="photo-select">
-                        <ReactSelect                    
-                            style={selectStyle}                                               
-                            placeholder = "Photo of Pet"
-                            onChange={selectChange}                                                
-                            options={photos}
-                            isSearchable = {false}
-                            formatOptionLabel={photo => (
-                            <div className="photo-option">
-                                <img className="selectIMGS" src={photo.image} alt="Pet"/>
-                                {/*<span>{photo.label}</span>*/}
-                                
-                            </div>
-                            )}
-                            
-                        />
-                    </div>
 
                 <label>Breed of Pet:</label> 
 
@@ -185,7 +177,7 @@ function EditPet() {
                 />
                                       
                     
-                    <button onClick={editDB} className = "submitBtn"> Accept Changes</button>
+                    <button className = "submitBtn"> Accept Changes</button>
                     
                 </form>
 

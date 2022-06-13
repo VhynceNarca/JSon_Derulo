@@ -44,7 +44,7 @@ function AddDog() {
       {
         name: formData.name,
         category: "Dog",
-        image: `/PETS/${filesContent[0].name}`,
+        image: `/assets/PETS/${filesContent[0].name}`,
         breed: formData.breed,
         description: formData.description,
       },
@@ -105,6 +105,21 @@ function AddDog() {
     }),
   };
 
+  const buttonStyle = {
+    padding: '0.3em 0.5em',
+    margin: '10px 0 0 0',
+    borderRadius: '5px',
+    color: '#fff',
+    backgroundColor: '#FFCA7E',
+    fontSize: '15px',
+    border: '0',
+    cursor: 'pointer',
+    width: '150px',
+    display:'flex', 
+    justifyContent:'space-between',
+    alignItems:'center',
+  }
+
   return (
     <>
       <div className="container">
@@ -127,7 +142,7 @@ function AddDog() {
 
               <label>Photo of Pet:</label>
 
-              <button onClick={() => openFileSelector()}>Select Photo</button>
+              <button style={buttonStyle} onClick={() => openFileSelector()}>Select Photo</button>
 
               <label>Breed of Pet:</label>
 

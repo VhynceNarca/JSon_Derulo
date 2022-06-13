@@ -30,75 +30,53 @@ const formReducer = (state, event) => {
 }
 
 function AddCat() {
- const [formData, setFormData] = useReducer(formReducer, {
-    name: '',
-    category: '',
-    image: '',                 //`../assets/${filesContent[0].name}`,
-    breed: '',
-    description: ''
- });  
- const [submitting, setSubmitting] = useState(false);
-  const handleSubmit = event => {
-    event.preventDefault();
-   setSubmitting(true);
-
-   setTimeout(() => {
-     setSubmitting(false);
-     setFormData({
-        reset: true
-      })
-   }, 3000)
- }
-
- const handleChange = event => {
-    //console.log(event.target.name)
-    setFormData({
-      name: event.target.name,
-      value: event.target.value,
-    });
-}
-
-const [
-    openFileSelector,
-    { filesContent, loading, errors, plainFiles }
-  ] = useFilePicker({
-    multiple: false,
-    readAs: "DataURL", // availible formats: "Text" | "BinaryString" | "ArrayBuffer" | "DataURL"
-    // accept: '.ics,.pdf',
-    accept: [".jpg", ".png"],
-    //limitFilesConfig: { min: 2, max: 3 }
-    // minFileSize: 1, // in megabytes
-    // maxFileSize: 1,
-    // maxImageHeight: 1024, // in pixels
-    // minImageHeight: 1024,
-    // maxImageWidth: 768,
-    // minImageWidth: 768
-    // readFilesContent: false, // ignores file content
-  });
-
-const config = {
-    headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-}
-
-
- const addtoDB = () => {
-    //console.log(formData.image);
-    var imageName = filesContent[0].name;
-    console.log(imageName);
-    console.log(config);
-    //openFileSelector();
-    Axios.post('pets/register',config,{
-        name: formData.name,
-        category: "Cat",
-        image: `/PETS/${imageName}`,                 //`../assets/${filesContent[0].name}`,
-        breed: formData.breed,
-        description: formData.petDesc
-    }).then(() => {
-        console.log("success");
-    });
- }
+    const [formData, setFormData] = useState({
+        name: "",
+        category: "", //`../assets/${filesContent[0].name}`,
+        breed: "",
+        description: "",
+      });
+    
+      const [openFileSelector, { filesContent, loading, errors, plainFiles }] =
+        useFilePicker({
+          multiple: false,
+          readAs: "DataURL", // availible formats: "Text" | "BinaryString" | "ArrayBuffer" | "DataURL"
+          accept: [".jpg", ".png"],
+        });
+    
+      const handleChange = (event) => {
+        setFormData({ ...formData, [event.target.name]: event.target.value });
+      };
+    
+      const token = localStorage.getItem("token");
+    
+      const config = {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      };
+    
+      const bodyParameters = {
+        key: "value",
+      };
+    
+      const handleSubmit = async (event) => {
+        event.preventDefault();
+        await Axios.post(
+          "pets/register",
+          {
+            name: formData.name,
+            category: "Cat",
+            image: `/assets/PETS/${filesContent[0].name}`,
+            breed: formData.breed,
+            description: formData.description,
+          },
+          config
+        ).then((res) => {
+          console.log("Creating cat: " + res.data);
+          console.log("success");
+        });
+      };
 
  function selectChange(value){
     console.log(value)
@@ -106,7 +84,7 @@ const config = {
     //console.log(formData.image)
  }
 
-
+/*
  const photos = [
     { name:'image' ,value: 'buchoy.jpg', label: 'buchoy', image: PHOTOS.cat1 },
     { name:'image' ,value:'catmon.jpg', label: 'catmon', image: PHOTOS.cat2 },
@@ -128,7 +106,21 @@ const config = {
         padding: 10,
 
     }),
- }
+ }*/
+ const buttonStyle = {
+    padding: '0.3em 0.5em',
+    margin: '10px 0 0 0',
+    borderRadius: '5px',
+    color: '#fff',
+    backgroundColor: '#FFCA7E',
+    fontSize: '15px',
+    border: '0',
+    cursor: 'pointer',
+    width: '150px',
+    display:'flex', 
+    justifyContent:'space-between',
+    alignItems:'center',
+  }
 
   return (
     <>
@@ -155,7 +147,7 @@ const config = {
 
                     <label>Photo of Pet:</label> 
                     
-                    <button onClick={() => openFileSelector()}>Select Photo</button>             
+                    <button style={buttonStyle} onClick={() => openFileSelector()}>Select Photo</button>             
 
                     <label>Breed of Pet:</label> 
 
@@ -179,7 +171,7 @@ const config = {
                         value = {formData.petDesc || ''}
                     />                      
                     
-                    <button onClick={addtoDB} type = "submit" id= "submitBtn" className = "submitBtn"> Put Up for Adoption</button>
+                    <button type = "submit" id= "submitBtn" className = "submitBtn"> Put Up for Adoption</button>
                     
                 </form>
 
